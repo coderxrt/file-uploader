@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dukee  | File Analyser</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <div style="color: red">!Update Available</div>
+  </head>
+  <body>
+    <h2>Dukee File analyser</h2>
+    {% if error %}
+      <div class="infoDiv" id="info" style="color:red;">{{error}}</div>
+    {% endif %}
+    {% if status %}
+      <div class="infoDiv" id="info" style="color:green;">{{status}}</div>
+    {% endif %}
+    <strong>Hi welcome user, you are required to choose your specific files and tap the send button to get started....</strong>
+    <form method="post" enctype="multipart/form-data" action="{{url_for('upload')}}">
+      <label for="files">Select one or more files</label>
+      <br>
+      <input type="file" id="fileInput" placeholder="choose one or more files" multiple name="files">
+      <br>
+      <button type="submit">Submit My Files</button>
+    </form>
+    <footer>
+      &copy; 2025 DukeeTech Productions
+    </footer>
+  </body>
+</html>
